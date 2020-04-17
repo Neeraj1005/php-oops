@@ -10,14 +10,18 @@
                         
                         <?php
                         
-                        $sql_query = "SELECT * FROM users WHERE id=1";
+                        $users = User::find_all_users();
 
-                        $result = $database->query($sql_query);
+                        foreach($users as $user){
 
-                        $user_found = mysqli_fetch_array($result);
+                            echo $user->id . "<br>";
 
-                        echo $user_found['username'];
-                        
+                        }
+                        echo "Below Find User by id <br>";
+                        $user_id = User::find_user_by_id(2);
+
+                        echo $user_id->username;
+
                         ?>
 
                         <ol class="breadcrumb">
