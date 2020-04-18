@@ -1,4 +1,8 @@
 <?php include("includes/header.php"); ?>
+<?php if(!$session->is_signed_in()){
+// header("Location: login.php"); //instead of this we use our custom function in function.php
+redirect("login.php");}
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
