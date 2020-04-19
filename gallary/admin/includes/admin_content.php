@@ -34,9 +34,13 @@
 
                         $user->Create(); */
 
-                        $user = User::find_user_by_id(4);
+                        /*$user = User::find_user_by_id(4);
                         $user->last_name = "williams";
-                        $user->Update();
+                        $user->Update();*/
+                        
+                        /*$user = User::find_user_by_id(6);
+                        $user->delete();*/
+
 
                         ?>
 
