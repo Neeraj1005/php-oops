@@ -100,14 +100,28 @@ class User {
         if ($database->query($sql)) {
 
             $this->id = $database->the_insert_id();
-            
+
             return true;
         } else {
             return false;
         }
         
     }
+    
+    public function Update(){
+        global $database;
+        $sql = "UPDATE users SET ";
+        $sql .= "username= '" . $database->escape_string($this->username) . "', "; 
+        $sql .= "password= '" . $database->escape_string($this->password) . "', "; 
+        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', "; 
+        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "' ";
+        $sql .= " WHERE id=" . $database->escape_string($this->id);
+        
+        $database->query($sql);
 
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+        
+    }
 
 
 }//class End here

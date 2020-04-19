@@ -26,13 +26,17 @@
 
                         ?>*/
 
-                        $user = new User();
+                      /*  $user = new User();
                         $user->username = "Tony";
                         $user->password = "starktower";
                         $user->first_name = "Tony";
                         $user->last_name = "Stark";
 
-                        $user->Create();
+                        $user->Create(); */
+
+                        $user = User::find_user_by_id(4);
+                        $user->last_name = "williams";
+                        $user->Update();
 
                         ?>
 
