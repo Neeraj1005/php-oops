@@ -8,7 +8,9 @@
                             <small>Subheading</small>
                         </h1>
                         
+                        
                         <?php
+                        /*
                         
                         $users = User::find_all_users();
 
@@ -21,6 +23,16 @@
                         $user_id = User::find_user_by_id(2);
 
                         echo $user_id->username;
+
+                        ?>*/
+
+                        $user = new User();
+                        $user->username = "Tony";
+                        $user->password = "starktower";
+                        $user->first_name = "Tony";
+                        $user->last_name = "Stark";
+
+                        $user->Create();
 
                         ?>
 
