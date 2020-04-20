@@ -43,10 +43,10 @@
 
                         $user = User::find_user_by_id(11);
                         // $user = new User();
-                        $user->username = "Harry";
+                        $user->username = "Nick";
                         $user->password = "password";
-                        $user->first_name = "marry";
-                        $user->last_name = "william";
+                        $user->first_name = "Neeraj";
+                        $user->last_name = "Tangariya";
                         $user->save();
 
 
