@@ -44,18 +44,16 @@
 
                         // $user = User::find_user_by_id(11);
                         // $user = new User();
-                        // $user->username = "Nick";
+                        // $user->username = "Rico";
                         // $user->password = "password";
-                        // $user->first_name = "Neeraj";
-                        // $user->last_name = "Tangariya";
+                        // $user->first_name = "Rico";
+                        // $user->last_name = "Tang";
                         // $user->save();
-                        $users = User::find_all();
 
-                        foreach($users as $user){
-
-                            echo $user->id ." => ". $user->username . "<br>";
-
-                        }
+                        // $users = User::find_all();
+                        // foreach($users as $user){
+                        //     echo $user->id ." => ". $user->username . "<br>";
+                        // }
 
                         ?>
 
