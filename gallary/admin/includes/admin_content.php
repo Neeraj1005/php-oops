@@ -41,6 +41,14 @@
                         /*$user = User::find_user_by_id(6);
                         $user->delete();*/
 
+                        $user = User::find_user_by_id(11);
+                        // $user = new User();
+                        $user->username = "Harry";
+                        $user->password = "password";
+                        $user->first_name = "marry";
+                        $user->last_name = "william";
+                        $user->save();
+
 
                         ?>
 

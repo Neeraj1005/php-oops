@@ -4,6 +4,8 @@
 
 class User {
 
+    protected static $table = "users";
+    protected static $table_field = array('username','password','first_name','last_name');
     public $id;
     public $username;
     public $password;
@@ -58,15 +60,6 @@ class User {
     public static function instatiation($the_table_record){
         $the_object = new self;
 
-        // $the_object->id = $the_table_record['id'];
-        // $the_object->username = $the_table_record['username'];
-        // $the_object->password = $the_table_record['password'];
-        // $the_object->first_name = $the_table_record['first_name'];
-        // $the_object->last_name = $the_table_record['last_name'];
-
-        //NOw applying the loopin wil automaticall fetch the table column instead of defining manually
-        //Now below we call the records dynamically instead of defining manually
-
         foreach ($the_table_record as $the_attribute => $value) {
             if ($the_object->has_the_attribute($the_attribute)) {
                 $the_object->$the_attribute = $value;
@@ -85,17 +78,36 @@ class User {
 
     }
 
+    public function properties()
+    {
+        // return get_object_vars($this);//this will not used b-coz it consider all attribute include table name also so we make an array;
+
+        $properties = array();
+
+        foreach (self::$table_field as $db_field) {
+            
+            if (property_exists($this, $db_field)) {
+                $properties[$db_field] = $this->$db_field;
+            }
+            
+        }
+        return $properties;
+    }
+
+    public function save()
+    {
+        return isset($this->id) ? $this->Update() : $this->Create();
+    }
+
 
     public function Create()
     {
         global $database;
 
-        $sql = "INSERT INTO users (username, password, first_name, last_name)";
-        $sql .= "VALUES ('";
-        $sql .= $database->escape_string($this->username) . "', '"; 
-        $sql .= $database->escape_string($this->password) . "', '"; 
-        $sql .= $database->escape_string($this->first_name) . "', '"; 
-        $sql .= $database->escape_string($this->last_name) . "')"; 
+        $properties = $this->properties();
+
+        $sql = "INSERT INTO " . self::$table . " (" .implode(",", array_keys($properties)) . ")";
+        $sql .= "VALUES ('". implode("','", array_values($properties)) ."')";
 
         if ($database->query($sql)) {
 
@@ -110,11 +122,17 @@ class User {
     
     public function Update(){
         global $database;
-        $sql = "UPDATE users SET ";
-        $sql .= "username= '" . $database->escape_string($this->username) . "', "; 
-        $sql .= "password= '" . $database->escape_string($this->password) . "', "; 
-        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', "; 
-        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "' ";
+
+        $properties = $this->properties();
+        $properties_pairs = array();
+        
+        foreach ($properties as $key => $value) {
+            $properties_pairs[] = "{$key}='{$value}'";
+            //"username= '" . $database->escape_string($this->username) . "', ";//follow this structure for above line
+        }
+
+        $sql = "UPDATE " .self::$table . " SET ";
+        $sql .= implode(", ", $properties_pairs);
         $sql .= " WHERE id=" . $database->escape_string($this->id);
         
         $database->query($sql);
@@ -125,7 +143,7 @@ class User {
     public function delete(){
         global $database;
 
-        $sql = "DELETE FROM users  ";
+        $sql = "DELETE FROM " .self::$table . "  ";
         $sql .= " WHERE id=" . $database->escape_string($this->id);
         $sql .= " LIMIT 1";
 
