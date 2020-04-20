@@ -19,6 +19,7 @@
                             echo $user->id . "<br>";
 
                         }
+
                         echo "Below Find User by id <br>";
                         $user_id = User::find_user_by_id(2);
 
@@ -41,14 +42,20 @@
                         /*$user = User::find_user_by_id(6);
                         $user->delete();*/
 
-                        $user = User::find_user_by_id(11);
+                        // $user = User::find_user_by_id(11);
                         // $user = new User();
-                        $user->username = "Nick";
-                        $user->password = "password";
-                        $user->first_name = "Neeraj";
-                        $user->last_name = "Tangariya";
-                        $user->save();
+                        // $user->username = "Nick";
+                        // $user->password = "password";
+                        // $user->first_name = "Neeraj";
+                        // $user->last_name = "Tangariya";
+                        // $user->save();
+                        $users = User::find_all();
 
+                        foreach($users as $user){
+
+                            echo $user->id ." => ". $user->username . "<br>";
+
+                        }
 
                         ?>
 
