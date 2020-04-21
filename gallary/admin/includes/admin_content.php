@@ -43,17 +43,20 @@
                         $user->delete();*/
 
                         // $user = User::find_user_by_id(11);
-                        // $user = new User();
-                        // $user->username = "Rico";
-                        // $user->password = "password";
-                        // $user->first_name = "Rico";
-                        // $user->last_name = "Tang";
+                        // $user = new Photo();
+                        // $user->title = "Rico";
+                        // $user->description = "password adfa  adfasdf adfasd ";
+                        // $user->filename = "Rico de ";
+                        // $user->type = "png";
+                        // $user->size = "11";
                         // $user->save();
 
-                        // $users = User::find_all();
+                        // $users = Photo::find_all();
                         // foreach($users as $user){
-                        //     echo $user->id ." => ". $user->username . "<br>";
+                        //     echo $user->photo_id ." => ". $user->title . "<br>";
                         // }
+
+                        // echo INCLUDES_PATH;
 
                         ?>
 
