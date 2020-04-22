@@ -2,6 +2,10 @@
   width: 200px;
   border-radius: 5px;
 }
+.user-thumbnail{
+  width: 75px;
+  height: 75px;
+}
 
 .photo-info-box {
 

@@ -5,16 +5,16 @@
 <?php
 
 if (empty($_GET['id'])) {
-    redirect("photos.php");
+    redirect("users.php");
 }
 
-$photo = Photo::find_by_id($_GET['id']);
+$photo = User::find_by_id($_GET['id']);
 
 if ($photo) {
-    $photo->delete_photo();
-    redirect("photos.php");
+    $photo->delete();
+    redirect("users.php");
 } else {
-    redirect("photos.php");
+    redirect("users.php");
 }
 
 
