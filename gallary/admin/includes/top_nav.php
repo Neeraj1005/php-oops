@@ -1,5 +1,5 @@
             
-            <div class="navbar-header">
+            <div class="navbar-header flex">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
