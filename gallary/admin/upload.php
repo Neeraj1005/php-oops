@@ -44,8 +44,7 @@ if (isset($_POST['submit'])) {
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Uploads Page
-                            <small>Subheading</small>
+                            Upload
                         </h1>
 
                     <div class="col-md-6">
