@@ -43,6 +43,7 @@ $comments = Comment::find_the_comments($_GET['id']);
                 </h1>
 
                 <div class="class=" col-md-12">
+                    <span><?php echo $session->message; ?></span>
                     <table class="table table-hover">
                         <!-- <?php echo $message ?> -->
                         <thead>
