@@ -5,7 +5,8 @@
 
 <?php
 
-$photos = Photo::find_all();
+// $photos = Photo::find_all();//This will is used as to all show photos//but below code is used for by specific user
+$photos = User::find_by_id($_SESSION['user_id'])->photos(); 
 
 ?>
 

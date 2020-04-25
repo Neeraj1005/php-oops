@@ -7,6 +7,7 @@ if (isset($_FILES['file'])) {
     
     // echo "<h1>message</h1>";
     $photo  = new Photo();
+    $photo->user_id = $_SESSION['user_id'];
     $photo->title = $_POST['title'];
     $photo->set_file($_FILES['file']);
     
@@ -53,6 +54,7 @@ if (isset($_FILES['file'])) {
                         <div class="form-group">
                         <input type="text" name="title" class="form-control">
                         </div>
+                        $photo->user_id = $_SESSION['user_id'];
                         <div class="form-group">
                         <input type="file" name="file">
                         </div>
