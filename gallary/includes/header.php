@@ -26,6 +26,7 @@
     <![endif]-->
 
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
 
 </head>
 

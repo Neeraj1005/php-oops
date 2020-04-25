@@ -48,7 +48,7 @@ class User extends Db_object {
                 $this->errors[] = "This file was not available";
                 return false;
             }
-            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+            $target_path = SITE_ROOT.DS. 'admin' . DS . $this->upload_directory . DS . $this->user_image;
     
             if (file_exists($target_path)) {
                 $this->errors[] = "The file {$this->user_image} already exists";
@@ -79,6 +79,18 @@ class User extends Db_object {
         $update_image = $database->query($sql);
         
         echo $this->image_path_and_placeholder();
+    }
+
+    public function delete_photo()
+    {
+        
+        if($this->delete()){
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+            
+            return unlink($target_path) ? true : false;
+        } else {
+            return false;
+        }
     }
 
 }//class End here

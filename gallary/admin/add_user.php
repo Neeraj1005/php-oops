@@ -20,6 +20,8 @@ if (isset($_POST['submit'])) {
 
         $user->upload_photo();
         $user->save();
+        $session->message("The user {$user->username} is added");
+        redirect("users.php");
     }
 
     }
