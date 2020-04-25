@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   var user_href;
   var user_href_splitted;
   var user_id;
@@ -35,7 +36,8 @@ $(document).ready(function () {
       success: function (data) {
 
         if(!data.error){
-          location.reload(true);
+          // location.reload(true);
+          $(".user_image_box a img").prop('src', data);
         }
         
       }
@@ -48,7 +50,7 @@ $(document).ready(function () {
 
 
 
-
+// TinyMCE code below
   tinymce.init({selector: '#textarea'});
 });
 
