@@ -6,6 +6,7 @@ $(document).ready(function () {
   var image_src;
   var image_href_splitted;
   var image_name;
+  var photo_id;
 
   $(".modal_thumbnails").click(function () { 
     
@@ -22,6 +23,21 @@ $(document).ready(function () {
 
 
     // alert(image_name);
+
+    photo_id = $(this).attr("data");
+
+    $.ajax({
+      type: "post",
+      url: "includes/ajax_code.php",
+      data: {photo_id: photo_id},
+      success: function (data) {
+
+        if(!data.error){
+          $("#modal_sidebar").html(data);
+        }
+        
+      }
+    });
     
   });
 
